@@ -1,0 +1,39 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: Install nmap
+      apt:
+        name: nmap
+        state: latest
+        update_cache: yes
+
+    - name: Install traceroute
+      apt:
+        name: traceroute
+        state: latest
+        update_cache: yes
+
+    - name: Install vim
+      apt:
+        name: vim
+        state: latest
+        update_cache: yes
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: latest
+        update_cache: yes
+
+    - name: Install htop
+      apt:
+        name: htop
+        state: latest
+        update_cache: yes
+
+    - name: configure /etc/resolv.conf
+      copy: dest=/etc/resolv.conf
+        src=resolv.conf
